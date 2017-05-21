@@ -59,7 +59,7 @@ class DownloadThread(threading.Thread):
 
             except Exception as e:
                 logging.debug('Error downloading')
-                print("Error: {0}".format(e))
+                print(("Error: {0}".format(e)))
 
             logging.debug('Task Done!')
             self._queue.task_done()
@@ -100,7 +100,7 @@ class DownloadThread(threading.Thread):
         color = self.get_color(wnum)
 
         logging.debug('Opening connection')
-        url_con = urllib2.urlopen(url)
+        url_con = urllib.request.urlopen(url)
 
         logging.debug('Getting metadata')
         meta = url_con.info()
@@ -118,7 +118,7 @@ class DownloadThread(threading.Thread):
         file_size = meta.get("Content-Length")
         logging.debug('File size:' + str(file_size))
 
-        print(color + "Downloading: %s Bytes: %s" % (file_name, file_size) + self.color_reset)
+        print((color + "Downloading: %s Bytes: %s" % (file_name, file_size) + self.color_reset))
 
         file_size = 0
         block_size = 8192

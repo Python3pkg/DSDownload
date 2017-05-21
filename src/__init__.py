@@ -9,7 +9,7 @@ DSDownload - DSDownload is a fully featured download library with focus on perfo
 import sys
 import argparse
 import logging
-from DSDownload import DSDownload
+from .DSDownload import DSDownload
 
 
 def main():
